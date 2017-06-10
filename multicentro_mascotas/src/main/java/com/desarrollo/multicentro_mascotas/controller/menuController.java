@@ -68,8 +68,6 @@ public class menuController implements Serializable{
         menItm.setContainerStyleClass("layout-menubar-active");
         model.addElement(menItm);
         for (Menu m : lista) {
-            System.out.println("rol " + usu.getIdRol().getIdRol());
-            System.out.println("rol " + m.getIdRol().getIdRol());
             if (m.getTipo().equals("S") && m.getIdRol().getIdRol().equals(usu.getIdRol().getIdRol())) {
                 DefaultSubMenu firsSubMenu = new DefaultSubMenu(m.getOpcion());
                 firsSubMenu.setIcon(m.getRutaImagen());
@@ -79,6 +77,7 @@ public class menuController implements Serializable{
                         if (submenu.getIdMenu() == m.getIdMenu()) {
                             DefaultMenuItem item = new DefaultMenuItem(i.getOpcion());
                             item.setIcon(i.getRutaImagen());
+                            item.setUrl(i.getAccion());
                             firsSubMenu.addElement(item);
                         }
                     }
@@ -88,6 +87,7 @@ public class menuController implements Serializable{
                 if (m.getMenuPadre() == null && m.getIdRol().getIdRol().equals(usu.getIdRol().getIdRol())) {
                     DefaultMenuItem item = new DefaultMenuItem(m.getOpcion());
                     item.setIcon(m.getRutaImagen());
+                    item.setUrl(m.getAccion());
                     model.addElement(item);
                 }
 
