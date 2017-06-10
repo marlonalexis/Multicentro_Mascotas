@@ -26,14 +26,19 @@ import javax.inject.Inject;
 @ViewScoped
 public class LoginController implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    //Con inject no hay necesidad de declarar en el init
+    @Inject
     private Usuarios usuarios;
+    @Inject
+    private Usuarios usu;
     
     @EJB
     private UsuariosFacadeLocal  usuarioEBJ;
     
     @PostConstruct
     protected void init() {
-        usuarios = new Usuarios();
+        //usuarios = new Usuarios();
     }
 
     public Usuarios getUsuarios() {
@@ -44,6 +49,14 @@ public class LoginController implements Serializable {
         this.usuarios = usuarios;
     }
 
+    public Usuarios getUsu() {
+        return usu;
+    }
+
+    public void setUsu(Usuarios usu) {
+        this.usu = usu;
+    }
+
     public UsuariosFacadeLocal getUsuarioEBJ() {
         return usuarioEBJ;
     }
@@ -51,11 +64,8 @@ public class LoginController implements Serializable {
     public void setUsuarioEBJ(UsuariosFacadeLocal usuarioEBJ) {
         this.usuarioEBJ = usuarioEBJ;
     }
-    
-    
 
     public String autenticar() {
-        Usuarios usu;
         String redireccion = null;
         try {
             usu = usuarioEBJ.autenticar(usuarios);
@@ -64,13 +74,14 @@ public class LoginController implements Serializable {
                 redireccion = "/principal/principal?faces-redirect=true";
             }else{
                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso", "USUARIO/CLAVE Invalidos")); 
-            }
-            
-            
+            } 
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error"));
         }
         return redireccion;
     }
-    
+       
+    public void logout(){
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+    }  
 }
