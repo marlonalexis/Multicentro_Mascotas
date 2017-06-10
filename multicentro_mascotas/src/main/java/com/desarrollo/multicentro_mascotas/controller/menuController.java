@@ -58,23 +58,36 @@ public class menuController implements Serializable{
     
     public void establecerPermisos(){
         Usuarios usu = (Usuarios) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("Usuarios");
-        System.out.println("rol " + usu.getIdRol().getIdRol());
+        
+        DefaultMenuItem menItm = new DefaultMenuItem("Principal");
+        menItm.setIcon("icon-home-outline");
+        menItm.setTitle("Pagina Principal");
+        menItm.setOutcome("/principal/principal");
+        menItm.setPartialSubmit(true);
+        menItm.setProcess("@this");
+        menItm.setContainerStyleClass("layout-menubar-active");
+        model.addElement(menItm);
         for (Menu m : lista) {
-            if (m.getTipo().equals("S")) {
+            System.out.println("rol " + usu.getIdRol().getIdRol());
+            System.out.println("rol " + m.getIdRol().getIdRol());
+            if (m.getTipo().equals("S") && m.getIdRol().getIdRol().equals(usu.getIdRol().getIdRol())) {
                 DefaultSubMenu firsSubMenu = new DefaultSubMenu(m.getOpcion());
+                firsSubMenu.setIcon(m.getRutaImagen());
                 for (Menu i : lista) {
                     Menu submenu = i.getMenuPadre();
                     if (submenu != null) {
                         if (submenu.getIdMenu() == m.getIdMenu()) {
                             DefaultMenuItem item = new DefaultMenuItem(i.getOpcion());
+                            item.setIcon(i.getRutaImagen());
                             firsSubMenu.addElement(item);
                         }
                     }
                 }
                 model.addElement(firsSubMenu);
             }else{
-                if (m.getMenuPadre() == null) {
+                if (m.getMenuPadre() == null && m.getIdRol().getIdRol().equals(usu.getIdRol().getIdRol())) {
                     DefaultMenuItem item = new DefaultMenuItem(m.getOpcion());
+                    item.setIcon(m.getRutaImagen());
                     model.addElement(item);
                 }
 
