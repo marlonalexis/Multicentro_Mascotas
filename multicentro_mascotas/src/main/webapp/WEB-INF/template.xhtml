@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	
+	
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+	<title>Veterinaria Multicentro de las Mascotas</title>
+        <f:event type="preRenderView" listener="#{plantillaMB.verificarSesion()}" />
+	<h:outputScript name="js/layout.js" library="sentinel-layout" />
+
+	<h:outputText value="&lt;!--[if gte IE 9]&gt;" escape="false" />
+	<style type="text/css">
+.ui-tabs-top .ui-tabs-nav li,.ui-tabs .ui-tabs-nav li {
+	margin-bottom: 0px !important;
+}
+
+
+</style>
+	<h:outputText value="&lt;![endif]--&gt;" escape="false" />
+
+	
+</h:head>
+        
+<h:body>
+        <ui:include src="topbar.xhtml" />
+	<div id="layout-portlets-cover" >
+		<ui:insert name="content">
+               Template
+            </ui:insert>
+	</div>
+
+	<h:outputStylesheet name="css/font-icon-layout.css"
+		library="sentinel-layout" />
+	<h:outputStylesheet name="css/sentinel-layout.css"
+		library="sentinel-layout" />
+	<h:outputStylesheet name="css/core-layout.css"
+		library="sentinel-layout" />
+</h:body>
+
+</html>

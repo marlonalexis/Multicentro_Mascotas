@@ -1,0 +1,91 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form>
+
+		<div id="layout-header" class="Unselectable fontRegular">
+			<a href="dashboard.xhtml" id="layout-logo"> <span
+				class="softblue">DASHBOARD - </span> <span
+				class="hardblue">Veterinaria Multicentro de las Mascotas</span>
+			</a>
+			<ul id="sm-topmenu" class="layout-header-widgets white Fs14">
+				<li class="Fleft BordRadHalf TexAlCenter"><i
+					class="icon-user-male"></i>
+					<ul
+						class="layout-header-widgets-submenu BordRad5 shadows white Animated05">
+						<li class="Animated05"><a class="white Unselectable"> <i
+								class="icon-user-male Fs26 OvHidden"></i> <span class="Fs18"><h:outputText
+                                                                        value="#{loginFinal.usuarios.username}" />
+									<br /> </span>
+						</a></li>
+					</ul></li>
+
+				<li class="Fleft BordRadHalf TexAlCenter"><i class="icon-mail"></i><span
+					class="alertBubble BordRad10 Fs9">1</span>
+					<ul
+						class="layout-header-widgets-submenu BordRad5 shadows white Animated05">
+						<li class="Animated05"><a href="#"
+							class="white Unselectable TexAlRight"><i
+								class="icon-chat-empty yellow"></i>SEED - SIGO<br />
+							<span class="Fs10">Bienvenido </span></a></li>
+					</ul></li>
+
+				<li class="Fleft BordRadHalf TexAlCenter"><i class="icon-power"></i>
+					<ul
+						class="layout-header-widgets-submenu BordRad5 shadows white Animated05">
+						<li class="Animated05"><a
+							href="../generales/pag_principal.xhtml"
+							class="white Unselectable"><i class="icon-ccw-1"></i>Refrescar</a></li>
+
+						<li class="Animated05"><p:commandLink
+								styleClass="white Unselectable" onclick="PF('dlg2').show();">
+								<i class="icon-key"></i>Cambio Clave </p:commandLink></li>
+
+						<li class="Animated05"><p:commandLink
+								styleClass="white Unselectable" onclick="PF('dlg3').show();">
+								<i class="icon-help-circled"></i>Acerca de </p:commandLink></li>
+
+						<li class="Animated05"><h:commandLink
+								 styleClass="white Unselectable">
+								<i class="icon-logout"></i>Salir </h:commandLink></li>
+
+					</ul></li>
+			</ul>
+			<!-- NEVER REMOVE FOLLOWING 'UL' TAG ! BECAUSE THIS CONTAINS RESPONSIVE MODE HEADER MENU OPEN-CLOSE BUTTON -->
+			<ul id="sm-mobiletopmenu" class="layout-header-widgets white Fs14">
+				<li
+					class="Fleft BordRadHalf TexAlCenter Animated05 DisplayOnResponsive"><i
+					class="icon-th-1"></i></li>
+			</ul>
+			<!-- ****** -->
+		</div>
+
+		<p:dialog header="Cambio de clave" widgetVar="dlg2" modal="true"
+			resizable="false" closable="false">
+
+
+		</p:dialog>
+
+		<p:dialog header="Acerca de:" widgetVar="dlg3" modal="true"
+			resizable="false" closable="true">
+
+			<p:graphicImage width="400"
+				value="/imagenes/corlasosa/logotipoCorlasosa2015.png"></p:graphicImage>
+
+			<p:panelGrid columns="2">
+				<h:outputText value="Email - Soporte: " />
+				<h:outputText value="bsegovia@corlasosa.com" />
+
+				<h:outputText value="Desarrollado por: " />
+				<h:outputText value="Corporación Latinoamericana de Software" />
+			</p:panelGrid>
+
+		</p:dialog>
+
+
+	</h:form>
+
+</ui:composition>
