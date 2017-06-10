@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:p="http://primefaces.org/ui" 
+        template="/WEB-INF/template.xhtml">
+<ui:define name="content">
+	<style>
+	<!--
+	.formulario {
+	 vertical-align: top;
+	}
+	--> 
+</style>
+    <ui:define name="pageTitle">
+            <h:outputText value="Marcaciones" />
+    </ui:define>
+    <div class="ContainerIndent">
+          <h:outputText value="Consulta de Evaluaciones" styleClass="FontBold Fs18 hardblue" />
+    </div>
+        		
+				<p:dataTable value="#" var="datos" id="data"   
+ 					emptyMessage="No se encuentra Marcaciones" paginator="true" rows="15" rowsPerPageTemplate="15,20,30">         
+ 					    
+					<p:column id="asesor" headerText="ASESOR" style="width:10%;text-align:center; font-size:8pt;" >  
+           				<h:outputText id="as"  />  
+           				<p:tooltip id="toolAs" for="as" showEffect="clip" hideEffect="explode" value="#" />
+       				</p:column>        
+       		        
+       		        <p:column id="evento" headerText="EVENTO" style="width:10%;text-align:center; font-size:8pt;" >  
+           				<h:outputText />  
+       				</p:column>  
+                 	
+                 	<p:column id="fecha_marcacion" headerText="FECHA MARCACION" style="width:10%;text-align:center; font-size:8pt;">  
+           				<h:outputText value=""> 
+           					<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" timeStyle="short" dateStyle="short" type="both" timeZone="America/Guayaquil"/>
+           				</h:outputText>  
+       				</p:column>  
+       				
+       				<p:column id="lugarMarcacion" headerText="LUGAR MARCACION" style="width:10%;text-align:center; font-size:8pt;">  
+           				<h:outputText value="#"/>  
+       				</p:column>
+      				
+      				<p:column id="observacion" headerText="OBSERVACION" style="width:35%;text-align:center; font-size:8pt;">  
+           				<h:outputText value=""/>  
+       				</p:column>
+       			
+       			</p:dataTable>  
+</ui:define>
+</ui:composition>

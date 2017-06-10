@@ -24,7 +24,7 @@ import javax.inject.Inject;
  */
 @ManagedBean(name = "loginFinal")
 @ViewScoped
-public class LoginFinalMB implements Serializable {
+public class LoginController implements Serializable {
     private static final long serialVersionUID = 1L;
     private Usuarios usuarios;
     

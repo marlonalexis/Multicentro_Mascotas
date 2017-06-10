@@ -18,7 +18,7 @@
 						class="layout-header-widgets-submenu BordRad5 shadows white Animated05">
 						<li class="Animated05"><a class="white Unselectable"> <i
 								class="icon-user-male Fs26 OvHidden"></i> <span class="Fs18"><h:outputText
-                                                                        value="#{loginFinal.usuarios.username}" />
+                                                                        value="#{loginFinal.usu.username}"/>
 									<br /> </span>
 						</a></li>
 					</ul></li>
@@ -29,7 +29,7 @@
 						class="layout-header-widgets-submenu BordRad5 shadows white Animated05">
 						<li class="Animated05"><a href="#"
 							class="white Unselectable TexAlRight"><i
-								class="icon-chat-empty yellow"></i>SEED - SIGO<br />
+								class="icon-chat-empty yellow"></i>Multicentro de las Mascotas<br />
 							<span class="Fs10">Bienvenido </span></a></li>
 					</ul></li>
 
@@ -49,7 +49,7 @@
 								<i class="icon-help-circled"></i>Acerca de </p:commandLink></li>
 
 						<li class="Animated05"><h:commandLink
-								 styleClass="white Unselectable">
+                                                        actionListener="#{loginFinal.logout()}" action="/index.jsf?faces-redirect=true" styleClass="white Unselectable">
 								<i class="icon-logout"></i>Salir </h:commandLink></li>
 
 					</ul></li>
@@ -63,12 +63,6 @@
 			<!-- ****** -->
 		</div>
 
-		<p:dialog header="Cambio de clave" widgetVar="dlg2" modal="true"
-			resizable="false" closable="false">
-
-
-		</p:dialog>
-
 		<p:dialog header="Acerca de:" widgetVar="dlg3" modal="true"
 			resizable="false" closable="true">
 
@@ -77,10 +71,12 @@
 
 			<p:panelGrid columns="2">
 				<h:outputText value="Email - Soporte: " />
-				<h:outputText value="bsegovia@corlasosa.com" />
+				<h:outputText value="mpluasgu@hotmail.com" />
+                                <h:outputText value="Contacto:0994844697" />
+                                <h:outputText value="skype:mpluasgu" />
 
 				<h:outputText value="Desarrollado por: " />
-				<h:outputText value="Corporación Latinoamericana de Software" />
+				<h:outputText value="Veterinaria Multicentro de las Mascotas" />
 			</p:panelGrid>
 
 		</p:dialog>

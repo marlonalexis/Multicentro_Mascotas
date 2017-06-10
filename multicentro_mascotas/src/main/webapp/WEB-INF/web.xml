@@ -28,16 +28,32 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
+     <servlet-mapping>
+      <servlet-name>Faces Servlet</servlet-name>
+      <url-pattern>*.jsf</url-pattern>
+     </servlet-mapping>
+     <servlet-mapping>
+      <servlet-name>Faces Servlet</servlet-name>
+      <url-pattern>*.xhtml</url-pattern>
+     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+     <error-page>
+      <error-code>404</error-code>
+      <location>/WEB-INF/error/404.xhtml</location>
+     </error-page>
+     <error-page>
+      <error-code>401</error-code>
+      <location>/WEB-INF/error/error.xhtml</location>
+     </error-page>
+     <error-page>
+      <error-code>403</error-code>
+      <location>/WEB-INF/error/access-denied.xhtml</location>
+     </error-page>
 </web-app>
